@@ -66,7 +66,7 @@ var canvas = {
 							drawHeight : 40
 						  };
 			
-		    var settings = $.extend( {}, Options, cusOptions );
+		    var settings = Object.assign( {}, Options, cusOptions );
 
 			ctx.drawImage(imageSprite,settings.srcX, settings.srcY, settings.width, settings.height, settings.drawX,settings.drawY,settings.drawWidth,settings.drawHeight);
 	},
