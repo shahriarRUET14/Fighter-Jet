@@ -223,11 +223,14 @@ Jet.prototype.checkHitWall = function(){
 	if(this.options.drawY + this.options.height >= FRAME_HEIGHT)this.options.drawY = FRAME_HEIGHT - this.options.height;
 }
 
+
+
 Jet.prototype.checkHitEnemy = function () {
 	for (var i = 0; i < canvas.enemies.length; i++) {
 		if (detectCollision(this, canvas.enemies[i])) {
 			
 			// debugger;
+			// todo: life calculate
 			this.options.explosion.options.drawX = canvas.enemies[i].enemyOptions.drawX + (this.options.explosion.options.width / 2);
 			this.options.explosion.options.drawY = canvas.enemies[i].enemyOptions.drawY - (this.options.explosion.options.height / 3);
 			this.options.explosion.hasHit = true;
