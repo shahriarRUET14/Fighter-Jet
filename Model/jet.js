@@ -134,7 +134,7 @@ Jet.prototype.drawJetCanvas = function () {
 
 
 Jet.prototype.checkHitWall = function () {
-	console.log("X: " + this.options.drawX);
+	// console.log("X: " + this.options.drawX);
 	if (this.options.drawX + this.options.width >= FRAME_WIDTH) this.options.drawX = FRAME_WIDTH - this.options.width;
 	if (this.options.drawX <= 100) this.options.drawX = 100;
 	if (this.options.drawY <= 0) this.options.drawY = 0;
@@ -152,6 +152,7 @@ Jet.prototype.checkHitEnemy = function () {
 			// debugger;
 			if (this.life <= 0) {
 				$("#resume").text('Your Score: ' + fighterJet.score.score).attr('disabled', 'disabled');
+				removeBullet();
 				pauseGame();
 			}
 			this.options.explosion.options.drawX = canvas.enemies[i].enemyOptions.drawX + (this.options.explosion.options.width / 2);

@@ -12,13 +12,15 @@ function Bullet() {
 			explosion: new Explosion()
 		};
 	this.speed = 3;
+	this.visible = true;
 }
 
 Bullet.prototype.drawBulletCanvas = function () {
-	this.options.drawX += this.speed;
-	canvas.draw(this.ctx, this.options);
-	this.checkHitEnemy();
-	this.recycleBullet();
+	
+		this.options.drawX += this.speed;
+		canvas.draw(this.ctx, this.options);
+		this.checkHitEnemy();
+		this.recycleBullet();
 };
 
 Bullet.prototype.recycleBullet = function () {
@@ -50,3 +52,7 @@ Bullet.prototype.checkHitEnemy = function () {
 		}
 	};
 };
+
+Bullet.prototype.removeBullet = function () { 
+	this.options.drawX = -20;
+ }

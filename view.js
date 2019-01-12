@@ -66,7 +66,7 @@ var canvas = {
     for (var i = 0; i < num; i++) {
       this.enemies[this.enemies.length] = new Enemy();
     }
-    console.log("Spawn");
+  //  console.log("Spawn");
   },
   drawAllEnemies: function () {
     this.clear(this.enemies[0].ctx);
@@ -145,3 +145,9 @@ var canvas = {
     if (keyId === 32) fighterJet.jetWarOptions.fireBtn = true; // Spacebar
   }
 };
+
+function removeBullet(){
+  for (let bullet of fighterJet.jetWarOptions.bullets) {
+    bullet.options.drawX = 10000;
+  }
+}
