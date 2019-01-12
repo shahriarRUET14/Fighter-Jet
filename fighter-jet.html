@@ -76,11 +76,18 @@
 
 <body>
 	<audio id="fire">
-		<source src="sound/gun.mp3">
+		<source src="sound/sound_design_effect_descend_futuristic_short-[AudioTrimmer.com].mp3">
+	</audio>
+	<audio id="enemyKill">
+		<source src="sound/Explosion+7.mp3">
 	</audio>
 	<audio id="collideEnemy">
-		<source src="sound/explosion.mp3">
+		<source src="sound/explosion-[AudioTrimmer.com].mp3">
+	</audio >
+	<audio id="gameOver">
+		<source src="sound/TunePocket-Game-Over-Sound-3-Preview-[AudioTrimmer.com].mp3">
 	</audio>
+	
 	<!-- <div class="border">
 			<button class="btn btn-success" onclick="pauseGame()" style="position:absolute; top:0; z-index: 1;">Pause</button>
 	</div> -->
@@ -93,7 +100,6 @@
 		<div class="layer"></div>
 		<div class="container">
 			<button id="pause" class="btn btn-light border border-primary d-none" onclick="pauseGame()"><i class="fa fa-pause fa-2x"></i></button>
-
 			<div class="row p-0 bg-light">
 				<button id="pause" class="btn btn-light w-20 border border-primary d-none" onclick="pauseGame()"><i class="fa fa-pause fa-2x"></i></button>
 				<div class="col d-flex justify-content-center">
@@ -152,9 +158,6 @@
 						<button id="restartButton" class="btn btn-success menuButton" onclick="restart()">Restart</button>
 					</div>
 				</div>
-
-
-
 			</div>
 
 		</div>

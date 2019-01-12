@@ -31,7 +31,7 @@ Bullet.prototype.fire = function (drawX, drawY) {
 	this.options.drawX = drawX;
 	this.options.drawY = drawY;	
 	// fireSound.play();
-  document.getElementById('fire').play();
+  document.getElementById('fire').cloneNode(true).play();
 }
 
 Bullet.prototype.checkHitEnemy = function () {
@@ -40,7 +40,7 @@ Bullet.prototype.checkHitEnemy = function () {
 			this.options.drawX < canvas.enemies[i].enemyOptions.drawX + 100 &&
 			this.options.drawY > canvas.enemies[i].enemyOptions.drawY + 10 &&
 			this.options.drawY < canvas.enemies[i].enemyOptions.drawY + 30) {
-
+			document.getElementById('enemyKill').cloneNode(true).play();	
       // debugger;
 			fighterJet.score.updateScoreForKill();
 			

@@ -145,12 +145,13 @@ Jet.prototype.checkHitWall = function () {
 Jet.prototype.checkHitEnemy = function () {
 	for (var i = 0; i < canvas.enemies.length; i++) {
 		if (detectCollision(this, canvas.enemies[i])) {
-
+			document.getElementById('collideEnemy').cloneNode(true).play();
 			// debugger;
 			this.life--;
 			this.showLife();
 			// debugger;
 			if (this.life <= 0) {
+				document.getElementById('gameOver').cloneNode(true).play();
 				$("#resume").text('Your Score: ' + fighterJet.score.score).attr('disabled', 'disabled');
 				removeBullet();
 				pauseGame();
