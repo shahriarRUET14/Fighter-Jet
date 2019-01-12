@@ -1,11 +1,14 @@
+
+const FRAME_WIDTH = 1500;
+const FRAME_HEIGHT = 450;
 var isFirstLoaded = 1;
 var drawInterval;
 var requestAnimFrame = window.requestAnimationFrame ||
   window.webkitRequestAnimationFrame;
 var level = new Level();
 var canvas = {
-  gameWidth: 1600,
-  gameHeight: 500,
+  gameWidth: window.innerWidth,
+  gameHeight: window.innerHeight,
   isPlaying: false,
   enemies: [],
   spawnAmount: 7,
@@ -114,10 +117,10 @@ var canvas = {
   drawbackground: function () {
     var ctxBg = this.getCanvasCtx('canvasBg');
     var bgOptions = {
-      width: this.gameWidth,
-      height: this.gameHeight,
-      drawWidth: this.gameWidth,
-      drawHeight: this.gameHeight
+      width: window.innerWidth,
+      height: window.innerHeight,
+      drawWidth: window.innerWidth,
+      drawHeight: window.innerHeight
     };
 
     this.draw(ctxBg, bgOptions);
@@ -151,3 +154,12 @@ function removeBullet(){
     bullet.options.drawX = 10000;
   }
 }
+
+ $("#canvasEnemy").attr('width', window.innerWidth).attr('height', window.innerHeight-200);
+ $("#canvasJet").attr('width', window.innerWidth).attr('height', window.innerHeight);
+ $("#canvasScore").attr('width', window.innerWidth).attr('height', window.innerHeight);
+ $(window).on('resize', function(){
+  $("#canvasEnemy").attr('width', window.innerWidth).attr('height', window.innerHeight-250);
+  $("#canvasJet").attr('width', window.innerWidth).attr('height', window.innerHeight);
+  $("#canvasScore").attr('width', window.innerWidth).attr('height', window.innerHeight);
+});

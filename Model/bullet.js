@@ -24,7 +24,7 @@ Bullet.prototype.drawBulletCanvas = function () {
 };
 
 Bullet.prototype.recycleBullet = function () {
-	if (this.options.drawX > canvas.gameWidth || this.options.explosion.hasHit) this.options.drawX = -20;
+	if (this.options.drawX > window.innerWidth || this.options.explosion.hasHit) this.options.drawX = -20;
 }
 
 Bullet.prototype.fire = function (drawX, drawY) {

@@ -1,6 +1,5 @@
 var shootInterval = 0;
-const FRAME_WIDTH = 1500;
-const FRAME_HEIGHT = 450;
+
 
 function detectCollision(jet, enemy) {
 	let bottomOfJet = jet.options.drawY + jet.options.height;
@@ -134,11 +133,11 @@ Jet.prototype.drawJetCanvas = function () {
 
 
 Jet.prototype.checkHitWall = function () {
-	// console.log("X: " + this.options.drawX);
-	if (this.options.drawX + this.options.width >= FRAME_WIDTH) this.options.drawX = FRAME_WIDTH - this.options.width;
-	if (this.options.drawX <= 100) this.options.drawX = 100;
+	console.log("Screen size: " + window.innerWidth);
+	if (this.options.drawX + this.options.width >= window.innerWidth) this.options.drawX = window.innerWidth - this.options.width;
+	if (this.options.drawX <= 0) this.options.drawX = 0;
 	if (this.options.drawY <= 0) this.options.drawY = 0;
-	if (this.options.drawY + this.options.height >= FRAME_HEIGHT) this.options.drawY = FRAME_HEIGHT - this.options.height;
+	if (this.options.drawY + this.options.height >= window.innerHeight-250) this.options.drawY = window.innerHeight - 250 - this.options.height;
 }
 
 

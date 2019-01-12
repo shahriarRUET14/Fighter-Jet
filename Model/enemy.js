@@ -2,7 +2,7 @@ function Enemy() {
   this.ctx = canvas.getCanvasCtx('canvasEnemy');
   this.enemyOptions = {
     srcY: 540,
-    drawX: Math.floor(Math.random() * 1000) + canvas.gameWidth,
+    drawX: Math.floor(Math.random() * 1000) + window.innerWidth,
     drawY: Math.floor(Math.random() * 360),
     width: 100,
 		height: 30
@@ -45,7 +45,7 @@ Enemy.prototype.escaped = function () {
 Enemy.prototype.recycleEnemy = function () {
   // console.log("enemy drawn");
   // console.log("Speed: " + this.speed);
-  this.enemyOptions.drawX = Math.floor(Math.random() * 1000) + canvas.gameWidth;
+  this.enemyOptions.drawX = Math.floor(Math.random() * 1000) + window.innerWidth;
   this.drawY = Math.floor(Math.random() * 360);
   canvas.currentTotalEnemies++;
   // console.log("Current level total: " + canvas.currentTotalEnemies);
