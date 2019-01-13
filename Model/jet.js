@@ -73,8 +73,6 @@ function Jet() {
 // };
 
 Jet.prototype.showLife = function () {
-
-
 	for (var lifeNumber = 1; lifeNumber <= this.totalLife; lifeNumber++) {
 		var id = "life" + lifeNumber;
 		//   console.log(id);
@@ -83,10 +81,9 @@ Jet.prototype.showLife = function () {
 		} else {
 			$('#' + id).attr('src', 'images/jet.png');
 		}
-
 	}
-
 }
+
 Jet.prototype.checkShooting = function () {
 	if (this.jetWarOptions.fireBtn && shootInterval > 5) {
 		this.jetWarOptions.isShooting = true;

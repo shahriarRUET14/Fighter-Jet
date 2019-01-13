@@ -29,6 +29,8 @@ function initGameState() {
 
 function restart() {
   initGameState();
+  fighterJet.options.drawX = 200;
+  fighterJet.options.drawY = 300;
   canvas.enemies = [];
   canvas.init();
   resumeGame();
