@@ -43,6 +43,18 @@ var canvas = {
       if (Math.random() < 0.5) {
         enemy.movement = true;
       }
+      if (Math.random() < 0.5) {
+        // enemy.canShoot = true;
+        // enemy.warOptions = {
+        //   bullets: [],
+		    //   currentBullet: 0,
+		    //   fireBtn: false,
+		    //   isShooting: false
+        // }
+        // for (var i = 0; i <= 50; i++) {
+        //   enemy.bullets[enemy.bullets.length] = new Bullet();
+        // }
+      }
       this.enemies.push(enemy);
     }
     this.currentSpawnAmount = this.spawnAmount;
@@ -155,11 +167,11 @@ function removeBullet(){
   }
 }
 
- $("#canvasEnemy").attr('width', window.innerWidth).attr('height', window.innerHeight-200);
- $("#canvasJet").attr('width', window.innerWidth).attr('height', window.innerHeight);
- $("#canvasScore").attr('width', window.innerWidth).attr('height', window.innerHeight);
- $(window).on('resize', function(){
+function setCanvasSize() { 
   $("#canvasEnemy").attr('width', window.innerWidth).attr('height', window.innerHeight-250);
   $("#canvasJet").attr('width', window.innerWidth).attr('height', window.innerHeight);
   $("#canvasScore").attr('width', window.innerWidth).attr('height', window.innerHeight);
-});
+}
+
+setCanvasSize();
+ $(window).on('resize', setCanvasSize);

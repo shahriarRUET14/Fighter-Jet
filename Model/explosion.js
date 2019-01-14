@@ -1,6 +1,5 @@
 function Explosion() {
 	this.ctx = canvas.getCanvasCtx('canvasJet');
-
 	this.options = {
 		srcX: 750,
 		srcY: 500,
@@ -14,7 +13,6 @@ function Explosion() {
 		drawWidth: 50,
 		drawHeight: 50
 	};
-
 	this.speed = 3;
 }
 

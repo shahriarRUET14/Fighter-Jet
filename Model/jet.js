@@ -1,6 +1,5 @@
 var shootInterval = 0;
 
-
 function detectCollision(jet, enemy) {
 	let bottomOfJet = jet.options.drawY + jet.options.height;
 	let topOfJet = jet.options.drawY;
@@ -52,7 +51,7 @@ function Jet() {
 		isShooting: false
 	}
 
-	for (var i = 0; i <= 70; i++) {
+	for (var i = 0; i <= 50; i++) {
 		this.jetWarOptions.bullets[this.jetWarOptions.bullets.length] = new Bullet();
 	}
 
@@ -100,7 +99,9 @@ Jet.prototype.checkShooting = function () {
 Jet.prototype.drawAllBullets = function () {
 	for (var i = 0; i < this.jetWarOptions.bullets.length; i++) {
 		if (this.jetWarOptions.bullets[i].options.drawX >= 0) this.jetWarOptions.bullets[i].drawBulletCanvas();
-		if (this.jetWarOptions.bullets[i].options.explosion.hasHit) this.jetWarOptions.bullets[i].options.explosion.drawExplosionCanvas();
+		if (this.jetWarOptions.bullets[i].options.explosion.hasHit){
+			this.jetWarOptions.bullets[i].options.explosion.drawExplosionCanvas();
+		} 
 	}
 }
 

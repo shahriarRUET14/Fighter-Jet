@@ -43,7 +43,6 @@ Bullet.prototype.checkHitEnemy = function () {
 			document.getElementById('enemyKill').cloneNode(true).play();	
       // debugger;
 			fighterJet.score.updateScoreForKill();
-			
 			this.options.explosion.options.drawX = canvas.enemies[i].enemyOptions.drawX + (this.options.explosion.options.width / 2);
 			this.options.explosion.options.drawY = canvas.enemies[i].enemyOptions.drawY - (this.options.explosion.options.height / 3);
 			this.options.explosion.hasHit = true;

@@ -11,6 +11,8 @@ function Enemy() {
   this.rewardPoints = 5;
   this.goUp = true;
   this.speed = 2;
+  this.canShoot = false;
+  this.warOptions =[];
 }
 Enemy.prototype.verticalMovement = 0.5;
 
@@ -29,8 +31,14 @@ Enemy.prototype.drawEnemyCanvas = function () {
     else if (this.enemyOptions.drawY === 500) {
       this.goUp = true;
     }
+    if (this.canShoot) {
+      //enemy.warOptions.isShooting = true;
+      // enemy.checkShooting();
+      // enemy.drawAllBullets();
+    }
     // console.log(this.enemyOptions.drawY);
   }
+
 
   canvas.draw(this.ctx, this.enemyOptions);
   this.escaped();
@@ -61,3 +69,6 @@ Enemy.prototype.recycleEnemy = function () {
     canvas.updateLevel();
   }
 }
+
+Enemy.prototype.checkShooting = Jet.prototype.checkShooting;
+Enemy.prototype.drawAllBullets = Jet.prototype.drawAllBullets;
