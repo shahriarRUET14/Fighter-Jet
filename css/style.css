@@ -44,7 +44,7 @@ body{
 .wrapCanvas{
   margin:auto;
   width: 800px;
-  height: 500;
+  height: 500; 
   /* border: 4px solid black;
   border-image: url(../images/bryan-colosky-317764-unsplash.jpg); */
 }

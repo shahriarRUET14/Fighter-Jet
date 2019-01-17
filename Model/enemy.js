@@ -2,7 +2,7 @@ function Enemy() {
   this.ctx = canvas.getCanvasCtx('canvasEnemy');
   this.enemyOptions = {
     srcY: 540,
-    drawX: Math.floor(Math.random() * 1000) + canvas.gameWidth,
+    drawX: Math.floor(Math.random() * 1000) + window.innerWidth,
     drawY: Math.floor(Math.random() * 360),
     width: 100,
 		height: 30
@@ -11,6 +11,8 @@ function Enemy() {
   this.rewardPoints = 5;
   this.goUp = true;
   this.speed = 2;
+  this.canShoot = false;
+  this.warOptions =[];
 }
 Enemy.prototype.verticalMovement = 0.5;
 
@@ -29,8 +31,14 @@ Enemy.prototype.drawEnemyCanvas = function () {
     else if (this.enemyOptions.drawY === 500) {
       this.goUp = true;
     }
+    if (this.canShoot) {
+      //enemy.warOptions.isShooting = true;
+      // enemy.checkShooting();
+      // enemy.drawAllBullets();
+    }
     // console.log(this.enemyOptions.drawY);
   }
+
 
   canvas.draw(this.ctx, this.enemyOptions);
   this.escaped();
@@ -45,7 +53,7 @@ Enemy.prototype.escaped = function () {
 Enemy.prototype.recycleEnemy = function () {
   // console.log("enemy drawn");
   // console.log("Speed: " + this.speed);
-  this.enemyOptions.drawX = Math.floor(Math.random() * 1000) + canvas.gameWidth;
+  this.enemyOptions.drawX = Math.floor(Math.random() * 1000) + window.innerWidth;
   this.drawY = Math.floor(Math.random() * 360);
   canvas.currentTotalEnemies++;
   // console.log("Current level total: " + canvas.currentTotalEnemies);
@@ -61,3 +69,6 @@ Enemy.prototype.recycleEnemy = function () {
     canvas.updateLevel();
   }
 }
+
+Enemy.prototype.checkShooting = Jet.prototype.checkShooting;
+Enemy.prototype.drawAllBullets = Jet.prototype.drawAllBullets;

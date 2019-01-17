@@ -3,10 +3,10 @@ function Score() {
   this.score = 0;
   this.scoreForKillingOneEnemy = 10;
 	this.options = {
-		width: canvas.gameWidth,
-		height: canvas.gameHeight,
-		drawWidth: canvas.gameWidth,
-		drawHeight: canvas.gameHeight
+		width: window.innerWidth,
+		height: window.innerHeight,
+		drawWidth: window.innerWidth,
+		drawHeight: window.innerHeight
   };
   
 }
