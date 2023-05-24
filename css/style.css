@@ -74,13 +74,13 @@ html {
   background-size: auto 100%;
 	background-position: 80% 0;
 	background-repeat: repeat-x;
-	height: 500px;
+	height: 700px;
 	left: 0;
 	position: absolute;
 	top: 0;
 	transform: translate3d(0, 0, 0);
 	width: 200vw;
-  animation: twinkle 10s ease-in -5s infinite alternate, layer-1 344s linear infinite;
+  	animation: twinkle 10s ease-in -5s infinite alternate, layer-1 344s linear infinite;
 	background-image: url('http://imgur.com/9beLKl9.png');
 }
 

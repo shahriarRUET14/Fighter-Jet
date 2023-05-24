@@ -1,10 +1,9 @@
-
 const FRAME_WIDTH = 1500;
 const FRAME_HEIGHT = 450;
 var isFirstLoaded = 1;
 var drawInterval;
-var requestAnimFrame = window.requestAnimationFrame ||
-  window.webkitRequestAnimationFrame;
+var requestAnimFrame =
+  window.requestAnimationFrame || window.webkitRequestAnimationFrame;
 var level = new Level();
 var canvas = {
   gameWidth: window.innerWidth,
@@ -16,21 +15,20 @@ var canvas = {
   gameScore: {},
   currentTotalEnemies: 0,
   init: function () {
-   // this.drawbackground();
+    // this.drawbackground();
     this.updateLevel();
     this.spawnEnemy(this.spawnAmount);
     this.startPlaying();
-    if(isFirstLoaded ==1){
-			this.stopPlaying();
-			isFirstLoaded = 0;
-		}
-
+    if (isFirstLoaded == 1) {
+      this.stopPlaying();
+      isFirstLoaded = 0;
+    }
 
     //this.gameScore = new Score();
     //this.gameScore.drawScoreCanvas();
 
-    document.addEventListener('keydown', this.utilityOfKeydown, false)
-    document.addEventListener('keyup', this.utilityOfKeyup, false);
+    document.addEventListener("keydown", this.utilityOfKeydown, false);
+    document.addEventListener("keyup", this.utilityOfKeyup, false);
   },
   updateLevel: function () {
     this.currentTotalEnemies = 0;
@@ -39,7 +37,7 @@ var canvas = {
     this.spawnAmount = level.getCurrentLevel().spawn;
     let spawnIncrease = this.spawnAmount - this.currentSpawnAmount;
     for (let index = 0; index < spawnIncrease; index++) {
-      let enemy = new Enemy()
+      let enemy = new Enemy();
       if (Math.random() < 0.5) {
         enemy.movement = true;
       }
@@ -47,9 +45,9 @@ var canvas = {
         // enemy.canShoot = true;
         // enemy.warOptions = {
         //   bullets: [],
-		    //   currentBullet: 0,
-		    //   fireBtn: false,
-		    //   isShooting: false
+        //   currentBullet: 0,
+        //   fireBtn: false,
+        //   isShooting: false
         // }
         // for (var i = 0; i <= 50; i++) {
         //   enemy.bullets[enemy.bullets.length] = new Bullet();
@@ -59,29 +57,27 @@ var canvas = {
     }
     this.currentSpawnAmount = this.spawnAmount;
     for (let index = 0; index < this.enemies.length; index++) {
-      this.enemies[index].speed = level.getCurrentLevel().speed;
+      this.enemies[index].speed = level.getCurrentLevel().speed + 2;
     }
-    console.log('Update level');
-    $('#level').text('Level ' + level.currentLevel);
+    console.log("Update level");
+    $("#level").text("Level " + level.currentLevel);
   },
   getCanvasCtx: function (id) {
-    return document.getElementById(id).getContext('2d');
+    return document.getElementById(id).getContext("2d");
   },
   recursiveDrawAllJets: function () {
     fighterJet.drawJetCanvas();
     this.drawAllEnemies();
     shootInterval++;
-    // if(this.isPlaying){ 						
-    // 	 debugger;
-    //	 requestAnimFrame(canvas.recursiveDrawAllJets());
-    // 	 setInterval(this.recursiveDrawAllJets,10);
-    // }
+  },
+  recursivedrawAllBullets: function () {
+    enemyJet.drawBulletCanvas();
   },
   spawnEnemy: function (num) {
     for (var i = 0; i < num; i++) {
       this.enemies[this.enemies.length] = new Enemy();
     }
-  //  console.log("Spawn");
+    //  console.log("Spawn");
   },
   drawAllEnemies: function () {
     this.clear(this.enemies[0].ctx);
@@ -89,7 +85,6 @@ var canvas = {
     for (var i = 0; i < this.enemies.length; i++) {
       this.enemies[i].drawEnemyCanvas();
     }
-
   },
   startPlaying: function () {
     //this.isPlaying = true;
@@ -116,23 +111,33 @@ var canvas = {
       drawX: 0,
       drawY: 0,
       drawWidth: 100,
-      drawHeight: 40
+      drawHeight: 40,
     };
 
     var settings = Object.assign({}, Options, cusOptions);
 
-    ctx.drawImage(imageSprite, settings.srcX, settings.srcY, settings.width, settings.height, settings.drawX, settings.drawY, settings.drawWidth, settings.drawHeight);
+    ctx.drawImage(
+      imageSprite,
+      settings.srcX,
+      settings.srcY,
+      settings.width,
+      settings.height,
+      settings.drawX,
+      settings.drawY,
+      settings.drawWidth,
+      settings.drawHeight
+    );
   },
   clear: function (ctx) {
     ctx.clearRect(0, 0, 1600, 500);
   },
   drawbackground: function () {
-    var ctxBg = this.getCanvasCtx('canvasBg');
+    var ctxBg = this.getCanvasCtx("canvasBg");
     var bgOptions = {
       width: window.innerWidth,
       height: window.innerHeight,
       drawWidth: window.innerWidth,
-      drawHeight: window.innerHeight
+      drawHeight: window.innerHeight,
     };
 
     this.draw(ctxBg, bgOptions);
@@ -158,20 +163,26 @@ var canvas = {
     if (keyId === 40 || keyId === 83) fighterJet.stear.down = true; // Z
     if (keyId === 37 || keyId === 65) fighterJet.stear.backword = true; // A
     if (keyId === 32) fighterJet.jetWarOptions.fireBtn = true; // Spacebar
-  }
+  },
 };
 
-function removeBullet(){
+function removeBullet() {
   for (let bullet of fighterJet.jetWarOptions.bullets) {
     bullet.options.drawX = 10000;
   }
 }
 
-function setCanvasSize() { 
-  $("#canvasEnemy").attr('width', window.innerWidth).attr('height', window.innerHeight-250);
-  $("#canvasJet").attr('width', window.innerWidth).attr('height', window.innerHeight);
-  $("#canvasScore").attr('width', window.innerWidth).attr('height', window.innerHeight);
+function setCanvasSize() {
+  $("#canvasEnemy")
+    .attr("width", window.innerWidth)
+    .attr("height", window.innerHeight - 250);
+  $("#canvasJet")
+    .attr("width", window.innerWidth)
+    .attr("height", window.innerHeight);
+  $("#canvasScore")
+    .attr("width", window.innerWidth)
+    .attr("height", window.innerHeight);
 }
 
 setCanvasSize();
- $(window).on('resize', setCanvasSize);
+$(window).on("resize", setCanvasSize);

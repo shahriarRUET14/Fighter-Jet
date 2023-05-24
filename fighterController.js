@@ -1,7 +1,8 @@
 var imageSprite = new Image();
-imageSprite.src = 'images/sprite.png';
-imageSprite.addEventListener('load', canvas.init.bind(canvas), false);
+imageSprite.src = "images/sprite copy05.png";
+imageSprite.addEventListener("load", canvas.init.bind(canvas), false);
 var fighterJet = new Jet();
+// var enemyJet = new Enemy();
 
 function pauseGame() {
   canvas.stopPlaying();
@@ -17,7 +18,6 @@ function resumeGame() {
 
 function startGame() {
   canvas.startPlaying();
-
 }
 
 function initGameState() {
@@ -34,7 +34,7 @@ function restart() {
   canvas.enemies = [];
   canvas.init();
   resumeGame();
-  $("#resume").text("Resume Game").attr('disabled', false);
+  $("#resume").text("Resume Game").attr("disabled", false);
 }
 
 function menu() {
@@ -49,7 +49,6 @@ function menu() {
 function play() {
   //document.getElementById("startGame").style.display = "none";
   $("#startGame").fadeOut(1000);
-  $("#pause").removeClass('d-none');
+  $("#pause").removeClass("d-none");
   startGame();
-
 }

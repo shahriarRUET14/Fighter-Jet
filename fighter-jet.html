@@ -91,51 +91,57 @@
 	</div> -->
 
 	<div id="layers">
+		<!-- <div class="layer"></div>
 		<div class="layer"></div>
 		<div class="layer"></div>
 		<div class="layer"></div>
-		<div class="layer"></div>
-		<div class="layer"></div>
-		<div class="container">
-			<button id="pause" class="btn btn-light border border-primary d-none" onclick="pauseGame()"><i class="fa fa-pause fa-2x"></i></button>
-			<div class="row p-0 bg-light">
+		<div class="layer"></div> -->
+		<div class="  mx-auto vw-100 ">
+			<!-- <button id="pause" class="btn btn-light border border-primary d-none" onclick="pauseGame()"><i class="fa fa-pause fa-2x"></i></button> -->
+			<div class="row  w-100 m-0 bg-light px-5">
 				<button id="pause" class="btn btn-light w-20 border border-primary d-none" onclick="pauseGame()"><i class="fa fa-pause fa-2x"></i></button>
-				<div class="col-md-4 d-flex justify-content-center">
-					<h2 id="level" class="d-inline"></h2>	
+				<div class=" d-flex justify-content-center">
+					<h3 class="d-inline ml-3">Name:&nbsp</h3>
+					<h3 id="name" class="d-inline"></h3>
+						
 				</div>
-				<div class="col-md-4 d-flex justify-content-center">
-						<h2 class="d-inline ml-auto">Score: &nbsp;</h2>
-						<h2 class="d-inline mr-auto" id="score">
+				<div class="col-md-4 p-0 d-flex justify-content-center">
+					<h3 id="level" class="d-inline"></h3>	
 				</div>
-				<div class="col-md-4 d-flex justify-content-center">
-						<img src="images/lifeGone.png" alt="" id="life1" class="" width="50" height="50">
-						<img src="images/lifeGone.png" alt="" id="life2" class="" width="50" height="50">
-						<img src="images/lifeGone.png" alt="" id="life3" class="" width="50" height="50">
+				<div class="col-md-4 p-0 d-flex justify-content-center">
+						<h3 class="d-inline ml-auto">Score: &nbsp;</h3>
+						<h3 class="d-inline mr-auto" id="score"></h3>
 				</div>
+				<div class=" d-flex justify-content-center">
+						<img src="images/lifeGone.png" alt="" id="life1" class="" width="30" height="50">
+						<img src="images/lifeGone.png" alt="" id="life2" class="" width="30" height="50">
+						<img src="images/lifeGone.png" alt="" id="life3" class="" width="30" height="50">
+				</div>
+				<button id="logOutBtn" class="ml-auto font-weight-bold"  >Logout</button>
+				
 			</div>
 		</div>
 		<div class="row p-0 m-0">
+			
 			<div class='wrapCanvas col d-flex justify-content-center w-100'>
-				<!-- <canvas id='canvasBg' width='1600' height='500'></canvas> -->
-				<!-- <img class="hidden" id="goofyPic" src="andyGoofy.gif" alt="Goofy pic of me" />
-						<canvas id="drawing" height="400" width="400"> -->
-				<canvas id='canvasEnemy' width='1600' height='500'></canvas>
-				<canvas id='canvasJet' width='1600' height='500'></canvas>
-				<canvas id='canvasScore' width='1600' height='500'></canvas>
+				 
+				<canvas id='canvasEnemy' width='1600' height='700'></canvas>
+				<canvas id='canvasJet' width='1600' height='700'></canvas>
+				<canvas id='canvasScore' width='1600' height='700'></canvas>
 			</div>
 
 			<div id="startGame" class="">
-				<img src="https://images.unsplash.com/photo-1519073147904-23e655032ea3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1205&q=80"
+				<img src="images/start.avif"
 				 style="height:400px;width:600px;opacity: 0.6;"></img>
 				<div id="menu_buttons" class="row bg-info border mx-0" style="position:absolute;">
 					<div class="col-sm-4">
 						<button id="startButton" class="btn btn-danger menuButton" onclick="play()">Start Game</button>
 					</div>
 					<div class="col-sm-4">
-						<button id="showHighScroreButton" class="btn btn-primary menuButton" onclick="">High Score</button>
+						<button id="showHighScoreButton" class="btn btn-primary menuButton" onclick="HighScore()">High Score</button>
 					</div>
 					<div class="col-sm-4">
-						<button id="showLevelButton" class="btn btn-success menuButton" onclick="">Settings</button>
+						<button id="showSettingsButton" class="btn btn-success menuButton" onclick="">Settings</button>
 					</div>
 				</div>
 
@@ -145,15 +151,15 @@
 
 
 			<div id="afterPause" style="display:none;">
-				<!-- <img src="https://images.unsplash.com/photo-1519073147904-23e655032ea3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1205&q=80"
-				 style="height:400px;width:600px;opacity: 0.6;"></img> -->
+		
 				<img src="images/paused.jpg" style="height:400px;width:600px;opacity: 0.6;"></img>
 				<div id="menu_buttons" class="row bg-info border mx-0" style="position:absolute;">
+					
 					<div class="col-sm-4">
 						<button id="resume" class="btn btn-danger menuButton" onclick="resumeGame()">Resume Game</button>
 					</div>
 					<div class="col-sm-4">
-						<button id="showHighScroreButton" class="btn btn-primary menuButton" onclick="menu()">Go to Menu</button>
+						<button id="menuButton" class="btn btn-primary menuButton" onclick="menu()">Go to Menu</button>
 					</div>
 					<div class="col-sm-4">
 						<button id="restartButton" class="btn btn-success menuButton" onclick="restart()">Restart</button>
@@ -171,14 +177,63 @@
 				</p>
 			</div>
 		</div>
-	</div>
+	
+    </div>
 
 
 	<!-- 
 	</div>
 	</div> -->
+	<script>
+		const name = localStorage.getItem("Name");
+  		const nameElement = document.getElementById("name");
+  		nameElement.textContent = name.toUpperCase();
+	</script>
+	<script>
+		showHighScoreButton.onclick = function() {
+			const xhttp = new XMLHttpRequest();
+			const tokens = localStorage.getItem("jwt");
+	
+			
+			xhttp.onload = function() {
+				if (this.status === 200 ||this.status === 201) {
+					const highScore = JSON.parse(this.responseText);
+					document.getElementById('showHighScoreButton').innerHTML = Number(highScore.highScore.maximumScore);
+				}
+			};
+			
+			xhttp.open("GET", "https://admin.crimsonapps.net/v1/data/highscore-preview");
+			xhttp.setRequestHeader("Content-Type", "application/json");
+			xhttp.setRequestHeader("Authorization", "Bearer " + tokens);
+			xhttp.send();
+		};
+	</script>
+		 
+		  <script>
+			const token = localStorage.getItem("jwt");
+			if (!token) {
+			
+				window.location.href = "./UserComponent/signIn-signUp.html";
+			 }
+			
+			let logOutBtn = document.getElementById("logOutBtn");
+			let tokensToRemove = ["jwt", "jwt-refresh"];
+			
+			logOutBtn.onclick = function () {
+				
+				for ( removeToken of tokensToRemove) {
+				localStorage.removeItem(removeToken);
+				
+			}
+			
+				
+				 window.location.href = "./UserComponent/signIn-signUp.html";
+			  
+	
+			}
+		</script>
 
-	<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 	 crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
 	 crossorigin="anonymous"></script>
